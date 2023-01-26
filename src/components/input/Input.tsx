@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './input.scss';
 
-interface InputType {
+export interface InputType {
   label: string,
   type: string,
   value: string,

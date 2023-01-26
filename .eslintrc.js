@@ -23,6 +23,8 @@ module.exports = {
     'func-names': ['error', 'always', { generators: 'as-needed' }],
     '@typescript-eslint/default-param-last': 'off',
     'react/function-component-definition': [2, {namedComponents: 'arrow-function', unnamedComponents: 'arrow-function'}],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "off"
   },
 };
 
