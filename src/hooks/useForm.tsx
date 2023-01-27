@@ -7,8 +7,10 @@ interface InitStepOneType {
 }
 
 const useForm = (callback: () => void, validate: (values : InitStepOneType) => {email:string, age:string, child:string}) => {
-  const [values, setValues] = useState<{email: string, age: number,check:boolean, child: number}>({
-    email: '', age: 0, check: false, child: 0
+  const [values, setValues] = useState<{
+    date: string,
+    email: string, age: number,check:boolean, child: number}>({
+    email: '', age: 0, check: false, child: 0, date: ''
   })
   const [errors, setErrors] = useState({
     email: '', age: '', child: '',

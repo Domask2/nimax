@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import Input from './components/input/Input'
-import useFieldChange from './hooks/useFieldsChange'
-import { initStepOneType } from './type/type'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import moment from 'moment'
 import useForm from './hooks/useForm'
 
 export interface InitStepOneType {
@@ -16,19 +15,19 @@ const App = () => {
   }
 
   function validate(values: InitStepOneType) {
-    const errors: {email:string, age:string, child:string} = {email:'', age:'', child:''}
+    const errors: { email: string, age: string, child: string } = { email: '', age: '', child: '' }
     if (!values.email) {
       errors.email = 'Email address is required'
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = 'Email address is invalid'
     }
-    if(!values.age) {
+    if (!values.age) {
       errors.age = 'Age is required'
     } else if (values.age < 1) {
       errors.age = 'Age more 1'
     }
-    if(values.age && values.child) {
-      const num = Math.ceil( values.child / values.age );
+    if (values.age && values.child) {
+      const num = Math.ceil(values.child / values.age)
       if (num > 3) {
         errors.child = 'Много мелких ублюдков'
       }
@@ -43,7 +42,7 @@ const App = () => {
     handleSubmit,
   } = useForm(login, validate)
 
-  console.log(values,errors);
+  console.log(values, errors)
 
   return (
     <div className='App'>
@@ -52,14 +51,17 @@ const App = () => {
       {/* <Input placeholder="" label='name' type='text' value={stepOne.name} onChange={handleChange('name')} /> */}
       {/* <Input placeholder="" label='soname' type='text' value={stepOne.soname} onChange={handleChange('soname')} /> */}
       <form onSubmit={handleSubmit} noValidate>
-        <input
-          autoComplete='off'
-          className={`input ${errors?.email && 'is-danger'}`}
-          type='email' name='email'
-          onChange={handleChange}
-          value={values.email || ''}
-        />
-        <span>{errors.email}</span>
+        <div>
+
+          <input
+            autoComplete='off'
+            className={`input ${errors?.email && 'is-danger'}`}
+            type='email' name='email'
+            onChange={handleChange}
+            value={values.email || ''}
+          />
+          <div className="message">{errors.email}</div>
+        </div>
 
         <input
           autoComplete='off'
@@ -68,18 +70,18 @@ const App = () => {
           onChange={handleChange}
           value={values.age || ''}
         />
-        <span>{errors.age}</span>
+        <div className="message">{errors.age}</div>
 
 
         <input
           autoComplete='off'
           className={`input ${errors?.child && 'is-danger'}`}
-          placeholder={errors.child}
           type='number' name='child'
           onChange={handleChange}
           value={values.child || ''}
           required
         />
+        <div className="message">{errors.child}</div>
 
         <input
           type='checkbox'
@@ -88,17 +90,29 @@ const App = () => {
           onChange={handleChange}
         />
 
-        <input
-          type='radio'
-          name='rad'
-          value="1"
-          onChange={handleChange}
-        />
+        <div className="message">
+          <input
+            type='radio'
+            name='rad'
+            value='1'
+            onChange={handleChange}
+          />
+
+          <input
+            type='radio'
+            name='rad'
+            value='2'
+            onChange={handleChange}
+          />
+        </div>
 
         <input
-          type='radio'
-          name='rad'
-          value="2"
+          className='input'
+          type='date'
+          name='date'
+          value={values.date}
+          min={moment().format('YYYY-MM-DD')}
+          max='2025-01-01'
           onChange={handleChange}
         />
 
