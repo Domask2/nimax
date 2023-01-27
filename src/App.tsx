@@ -1,9 +1,9 @@
 import React from 'react'
-import Rout from './rout/Rout'
+import Routing from './routing/Routing'
 
 const App = () => (
   <div className='App'>
-    <Rout/>
+    <Routing />
   </div>
 )
 

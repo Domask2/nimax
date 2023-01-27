@@ -1,18 +1,26 @@
-import React, { createContext, useState, useContext } from 'react'
+import React, { createContext, useState, useContext, useMemo } from 'react'
+import { InitValues, ValueType } from '../../type/type'
 
-const DataContext = createContext({})
+const iDataContextState = {
+  data: InitValues,
+  setValues: (state: ValueType) => {}
+}
 
-export const DataProvider = ({ children }: any) => {
-  const [data, setData] = useState({})
+const DataContext = createContext(iDataContextState)
 
-  const setValues = (values: any) => {
+export const DataProvider = ({ children }: {children: React.ReactNode}) => {
+  const [data, setData] = useState(iDataContextState.data)
+
+  const setValues = (values: ValueType) => {
     setData(prevData => ({
       ...prevData,
       ...values,
     }))
   }
 
-  return <DataContext.Provider value={{ data, setValues }}>
+  const value = useMemo(() => ({ data, setValues }), []);
+
+  return <DataContext.Provider value={value}>
     {children}
   </DataContext.Provider>
 }
