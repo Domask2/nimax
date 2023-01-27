@@ -1,20 +1,9 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react'
+import { ErrorType, ValueType } from '../type/type'
 
-interface InitStepOneType {
-  email: string
-  age: number
-  child: number
-}
-
-const useForm = (callback: () => void, validate: (values : InitStepOneType) => {email:string, age:string, child:string}) => {
-  const [values, setValues] = useState<{
-    date: string,
-    email: string, age: number,check:boolean, child: number}>({
-    email: '', age: 0, check: false, child: 0, date: ''
-  })
-  const [errors, setErrors] = useState({
-    email: '', age: '', child: '',
-  })
+const useForm = (callback: () => void, validate: (values: ValueType) => ErrorType, initValues: ValueType, initError: ErrorType) => {
+  const [values, setValues] = useState(initValues)
+  const [errors, setErrors] = useState(initError)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
@@ -31,15 +20,21 @@ const useForm = (callback: () => void, validate: (values : InitStepOneType) => {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.persist()
-    setValues((values) => ({ ...values, [event.target.name]: event.target.type === 'checkbox' ?  event.target.checked : event.target.value }))
+
+    let value: string | number | boolean
+    if (event.target.type === 'number') {
+      value = Number(event.target.value)
+    } else {
+      value = event.target.value
+    }
+
+    setValues((values) => ({
+      ...values,
+      [event.target.name]: event.target.type === 'checkbox' ? event.target.checked : value,
+    }))
   }
 
-  return {
-    handleChange,
-    handleSubmit,
-    values,
-    errors,
-  }
+  return { handleChange, handleSubmit, values, errors }
 }
 
 export default useForm
