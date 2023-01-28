@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
-import { ErrorType, ValueType, ValueType1, ValueType2 } from '../type/type'
-import { useData } from '../components/contex/DataContex'
+import { ErrorType, ValueType1, ValueType2 } from '../type/type';
+import { useData } from '../components/contex/DataContex';
 
 const useForm = (
     callback: () => void,
@@ -11,6 +11,13 @@ const useForm = (
     const { data } = useData();
     const [values, setValues] = useState(data);
     const [errors, setErrors] = useState(initError);
+
+    const toNumber = (value: string | number) => {
+        if (typeof value === 'number') return value
+        return parseInt(value.replace(/[^\d]+/g, ''), 10)
+    }
+
+    const formatPrice = (price: string | number) => new Intl.NumberFormat('es-PY').format(toNumber(price))
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         if (event) event.preventDefault();
@@ -24,11 +31,15 @@ const useForm = (
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        event.persist();
 
+        event.persist();
         let value: string | number | boolean;
+
         if (event.target.type === 'number') {
             value = Number(event.target.value);
+        } else if (event.target.type === 'tel') {
+            const numberValue = toNumber(event.target.value)
+            value = formatPrice(numberValue)
         } else {
             value = event.target.value;
         }
