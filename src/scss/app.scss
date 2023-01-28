@@ -2,22 +2,46 @@
 @import 'libs/normalize';
 @import 'all';
 
-.App {
-  max-width: 800px;
-  margin: 0 auto;
+.app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-input::placeholder {
-  color: #212529;
-  opacity: 0.4;
+.container {
+  width: 768px;
+  height: 700px;
+  padding: 16px 20px;
+  background: #F9FAFB;
+  margin: 16px;
 }
 
-input:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #bdbdbd;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+.form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-left: 64px;
+  padding-right: 64px;
+
+  &__title {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 8px;
+
+    &__desc {
+      font-family: 'Inter', serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 24px;
+    }
+  }
 }
 
 .message {
@@ -25,22 +49,99 @@ input:focus {
   margin-bottom: 0.5rem;
 }
 
+
+.group {
+  display: flex;
+
+  &__title {
+    width: 50%;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &__radio {
+    width: 50%;
+  }
+}
+
 .input {
   display: block;
-  width: 100%;
-  height: calc(2.25rem + 2px);
-  padding: 0.375rem 0.75rem;
-  margin-bottom: 0.3rem;
-  font-family: inherit;
-  font-size: 1rem;
+  width: 50%;
+  height: 32px;
+  padding: 7px 8px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
   font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: cadetblue;
-  background-clip: padding-box;
-  border: 1px solid #bdbdbd;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: 16px;
+  line-height: 18px;
+  outline: none;
+}
+
+input[type='radio'],
+label {
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  position: relative;
+  height: 14px;
+  width: 14px;
+  appearance: none;
+  outline: none;
+}
+
+input[type='radio']::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+}
+
+input[type='radio']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
+
+.form_result {
+  display: flex;
+
+  &__label {
+    width: 50%;
+  }
+
+  &__sum {
+    width: 50%;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.form_btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 .is-danger {
@@ -58,4 +159,12 @@ input:focus {
 
 .button:hover {
   background-color: darkblue;
+}
+
+.reverse {
+  font-family: 'Inter' , serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
 }

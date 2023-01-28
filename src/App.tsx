@@ -1,10 +1,12 @@
-import React from 'react'
-import Routing from './routing/Routing'
+import React from 'react';
+import Routing from './routing/Routing';
 
 const App = () => (
-  <div className='App'>
-    <Routing />
-  </div>
-)
+    <div className='app'>
+        <div className='container'>
+            <Routing />
+        </div>
+    </div>
+);
 
-export default App
+export default App;

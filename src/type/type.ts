@@ -1,40 +1,65 @@
-export interface ValueType {
-  countAdult: number,
-  countChildren: number,
-  countSmallChildren: number,
-  typeNumber: string,
-  countNumber: number,
-  insurance: boolean,
-}
+import moment from 'moment';
 
-export interface ErrorType {
-  countAdult: string,
-  countChildren: string,
-  countSmallChildren: string,
-  countNumber: string,
-}
+export type ValueType1 = {
+    countAdult?: number;
+    countChildren?: number;
+    countSmallChildren?: number;
+    typeNumber?: string;
+    countNumber?: number;
+    insurance?: boolean;
+};
+
+export type ValueType2 = {
+    surname?: string;
+    name?: string;
+    patronymic?: string;
+    phone?: string;
+    date?: string;
+};
+
+export type ValueType = ValueType1 & ValueType2;
+
+export type ErrorType1 = {
+    countAdult: string;
+    countChildren: string;
+    countSmallChildren: string;
+    countNumber: string;
+    surname: string;
+};
+
+export type ErrorType2 = {
+    surname: string;
+    name: string;
+    phone: string;
+    date: string;
+};
+
+export type ErrorType = ErrorType1 & ErrorType2;
 
 export const InitValues = {
-  countAdult: 0,
-  countChildren: 0,
-  countSmallChildren: 0,
-  typeNumber: 'economy',
-  countNumber: 0,
-  insurance: false,
-}
-export const InitErrors = {
-  countAdult: '',
-  countChildren: '',
-  countSmallChildren: '',
-  countNumber: '',
+    countAdult: 0,
+    countChildren: 0,
+    countSmallChildren: 0,
+    typeNumber: 'economy',
+    countNumber: 0,
+    insurance: false,
+};
+
+export const InitValues2 = {
+    surname: '',
+    name: '',
+    patronymic: '',
+    phone: '',
+    date: moment().format('YYYY-MM-DD'),
 }
 
-//   <input
-// className='input'
-// type='date'
-// name='date'
-// value={values.date}
-// min={moment().format('YYYY-MM-DD')}
-// max='2025-01-01'
-// onChange={handleChange}
-// />
+export const InitErrors = {
+    countAdult: '',
+    countChildren: '',
+    countSmallChildren: '',
+    countNumber: '',
+    surname: '',
+    name: '',
+    phone: '',
+    date: ''
+};

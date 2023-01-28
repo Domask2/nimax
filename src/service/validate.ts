@@ -1,6 +1,6 @@
-import { InitErrors, ValueType } from '../type/type'
+import { InitErrors, ValueType, ValueType1, ValueType2 } from '../type/type'
 
-const validate = (values: ValueType) => {
+const validate = (values: {}) => {
   const errors = InitErrors
   // if (!values.email) {
   //   errors.email = 'Email address is required'

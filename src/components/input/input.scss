@@ -1,0 +1,23 @@
+.input_field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  &__label {
+    width: 50%;
+    height: 19px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &__label_radio {
+    margin-left: 10px;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+  }
+}
