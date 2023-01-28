@@ -55,7 +55,7 @@ const StepOne = () => {
                 <Input
                     id='phone'
                     name='phone'
-                    type='tel'
+                    type='text'
                     label='Номер телефона'
                     onChange={handleChange}
                     value={values.phone}

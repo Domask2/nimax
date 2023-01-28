@@ -1,7 +1,12 @@
 import { InitErrors, ValueType, ValueType1, ValueType2 } from '../type/type'
 
-const validate = (values: {}) => {
+const validate = (values: ValueType1 & ValueType2) => {
   const errors = InitErrors
+
+  // if(values.countAdult && values.countAdult > 0) {
+  //
+  // }
+
   // if (!values.email) {
   //   errors.email = 'Email address is required'
   // } else if (!/\S+@\S+\.\S+/.test(values.email)) {

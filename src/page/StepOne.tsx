@@ -34,6 +34,7 @@ const StepOne = () => {
                 value={values.countAdult}
                 onChange={handleChange}
                 error={errors?.countAdult}
+                min="1"
             />
 
             <Input

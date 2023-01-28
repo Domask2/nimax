@@ -12,8 +12,8 @@ export interface InputType {
     placeholder?: string;
     error?: string;
     defaultChecked?: boolean;
-    min?: string;
-    max?: string;
+    min?: string | number;
+    max?: string | number;
     pattern?: string;
 }
 

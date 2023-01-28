@@ -37,7 +37,7 @@ export type ErrorType2 = {
 export type ErrorType = ErrorType1 & ErrorType2;
 
 export const InitValues = {
-    countAdult: 0,
+    countAdult: 1,
     countChildren: 0,
     countSmallChildren: 0,
     typeNumber: 'economy',
