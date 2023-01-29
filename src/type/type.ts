@@ -41,7 +41,7 @@ export const InitValues = {
     countChildren: 0,
     countSmallChildren: 0,
     typeNumber: 'economy',
-    countNumber: 0,
+    countNumber: 1,
     insurance: false,
 };
 

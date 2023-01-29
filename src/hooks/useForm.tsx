@@ -10,21 +10,18 @@ const useForm = (
 ) => {
     const { data } = useData();
     const [values, setValues] = useState(data);
-    const [errors, setErrors] = useState(initError);
+    const [errors, setErrors] = useState<any>(null);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         if (event) event.preventDefault();
         setErrors(validate(values));
 
-        Object.values(errors).forEach((val: string) => {
-            if (val === '') {
-                callback();
-            }
-        });
+        if (Object.keys(validate(values))?.length === 0) {
+            callback();
+        }
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-
         event.persist();
         let value: string | number | boolean;
 

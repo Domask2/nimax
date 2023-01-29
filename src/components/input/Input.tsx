@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, KeyboardEventHandler } from 'react';
+import React, { ChangeEvent, FC, useEffect } from 'react'
 import './input.scss';
 
 export interface InputType {
@@ -31,26 +31,43 @@ const Input: FC<InputType> = ({
     min,
     max,
     pattern,
-}) => (
-    <div className='input_field'>
-        {type !== 'radio' && <div className='input_field__label'>{label}</div>}
-        <input
-            id={id}
-            className={type === 'radio' ? 'input_radio' : 'input'}
-            type={type}
-            name={name}
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-            checked={checked}
-            defaultChecked={defaultChecked}
-            min={min}
-            max={max}
-            pattern={pattern}
-        />
-        {type === 'radio' && <div className='input_field__label_radio'>{label}</div>}
-        <div className='input_field__message'>{error}</div>
-    </div>
-);
+}) => {
+
+    let classname:string;
+    switch (type) {
+        case 'radio':
+            classname = 'input_radio'
+        break;
+        case 'checkbox':
+            classname = 'input_checkbox'
+        break;
+        default:
+              classname = 'input'
+    }
+
+    return (
+        <div className='input_field'>
+            {type !== 'radio' && <div className='input_field__label'>{label}</div>}
+            <input
+                id={id}
+                className={classname}
+                type={type}
+                name={name}
+                value={value}
+                placeholder={placeholder}
+                onChange={onChange}
+                checked={checked}
+                defaultChecked={defaultChecked}
+                min={min}
+                max={max}
+                pattern={pattern}
+            />
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            {type === 'checkbox' && <label htmlFor={id} className='custom-checkbox' />}
+            {type === 'radio' && <div className='input_field__label_radio'>{label}</div>}
+            {error && <div className='input_field__message'>{error}</div>}
+        </div>
+    );
+};
 
 export default Input
