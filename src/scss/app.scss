@@ -201,3 +201,34 @@ input[type='radio']:checked::after {
   font-size: 16px;
   line-height: 19px;
 }
+
+.description {
+  margin-top: 24px;
+  font-family: 'Inter', Serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  &_user {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-bottom: 6px;
+  }
+  &_phone{
+    margin-bottom: 6px;
+  }
+  &_number {
+    margin-bottom: 6px;
+  }
+  &_list_user {
+    margin-bottom: 6px;
+  }
+  &_insurance {
+    margin-bottom: 20px;
+  }
+}

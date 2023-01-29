@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import useForm from '../hooks/useForm';
-import validate from '../service/validate';
+import { validate } from '../service/validate';
 import Form from '../components/form/Form';
 import Input from '../components/input/Input';
-import { InitErrors, InitValues } from '../type/type';
+import getPrice from '../service/getPrice';
 import { useData } from '../components/contex/DataContex';
+import { InitErrors, InitValues } from '../type/type';
 
 const StepOne = () => {
-    const { setValues, data } = useData();
     const navigate = useNavigate();
-
+    const { setValues } = useData();
+    const [price, setPrice] = useState(0);
     const { values, errors, handleChange, handleSubmit } = useForm(
         () => {
+            values.totalPrice = price
             setValues(values);
             navigate('/step2');
         },
@@ -20,6 +22,12 @@ const StepOne = () => {
         InitValues,
         InitErrors,
     );
+
+
+    useEffect(() => {
+        const totalPrice = getPrice(values);
+        setPrice(totalPrice);
+    }, [values]);
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -45,7 +53,7 @@ const StepOne = () => {
                     onChange={handleChange}
                     value={values.countChildren}
                     error={errors?.countChildren}
-                    min='1'
+                    min='0'
                 />
 
                 <Input
@@ -56,7 +64,7 @@ const StepOne = () => {
                     onChange={handleChange}
                     value={values.countSmallChildren}
                     error={errors?.countSmallChildren}
-                    min='1'
+                    min='0'
                 />
 
                 <div className='group'>
@@ -116,7 +124,7 @@ const StepOne = () => {
 
                 <div className='form_result'>
                     <div className='form_result__label'>Итого:</div>
-                    <div className='form_result__sum'>1000 ₽</div>
+                    <div className='form_result__sum'>{price} ₽</div>
                 </div>
             </div>
 

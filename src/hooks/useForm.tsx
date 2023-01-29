@@ -10,7 +10,7 @@ const useForm = (
 ) => {
     const { data } = useData();
     const [values, setValues] = useState(data);
-    const [errors, setErrors] = useState<any>(null);
+    const [errors, setErrors] = useState<ErrorType | null>(null);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         if (event) event.preventDefault();

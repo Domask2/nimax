@@ -1,4 +1,6 @@
-import moment from 'moment';
+export const economy = 1800;
+export const standard = 2800;
+export const luxury = 4000;
 
 export type ValueType1 = {
     countAdult?: number;
@@ -7,6 +9,7 @@ export type ValueType1 = {
     typeNumber?: string;
     countNumber?: number;
     insurance?: boolean;
+    totalPrice?: number
 };
 
 export type ValueType2 = {
@@ -20,18 +23,17 @@ export type ValueType2 = {
 export type ValueType = ValueType1 & ValueType2;
 
 export type ErrorType1 = {
-    countAdult: string;
-    countChildren: string;
-    countSmallChildren: string;
-    countNumber: string;
-    surname: string;
+    countAdult?: string;
+    countChildren?: string;
+    countSmallChildren?: string;
+    countNumber?: string;
 };
 
 export type ErrorType2 = {
-    surname: string;
-    name: string;
-    phone: string;
-    date: string;
+    surname?: string;
+    name?: string;
+    phone?: string;
+    date?: string;
 };
 
 export type ErrorType = ErrorType1 & ErrorType2;
@@ -43,14 +45,15 @@ export const InitValues = {
     typeNumber: 'economy',
     countNumber: 1,
     insurance: false,
+    totalPrice: economy
 };
 
 export const InitValues2 = {
     surname: '',
     name: '',
     patronymic: '',
-    phone: '',
-    date: moment().format('YYYY-MM-DD'),
+    phone: '+7',
+    date: '',
 }
 
 export const InitErrors = {

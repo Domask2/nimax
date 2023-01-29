@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router';
+import InputMask from 'react-input-mask';
 import useForm from '../hooks/useForm';
-import validate from '../service/validate';
+import { validate2 } from '../service/validate';
 import Form from '../components/form/Form';
 import Input from '../components/input/Input';
 import { InitErrors, InitValues2 } from '../type/type';
@@ -10,10 +11,13 @@ import { useData } from '../components/contex/DataContex';
 
 const StepOne = () => {
     const navigate = useNavigate();
-    const { setValues, data } = useData();
+    const { setValues } = useData();
     const { values, errors, handleChange, handleSubmit } = useForm(
-        () => setValues(values),
-        validate,
+        () => {
+            setValues(values);
+            navigate('/result');
+        },
+        validate2,
         InitValues2,
         InitErrors,
     );
@@ -52,15 +56,17 @@ const StepOne = () => {
                     value={values.patronymic}
                 />
 
-                <Input
-                    id='phone'
-                    name='phone'
-                    type='text'
-                    label='Номер телефона'
-                    onChange={handleChange}
-                    value={values.phone}
-                    error={errors?.phone}
-                />
+                <InputMask mask='+799999999-99' value={values.phone} onChange={handleChange}>
+                    <Input
+                        id='phone'
+                        name='phone'
+                        type='text'
+                        label='Номер телефона'
+                        onChange={handleChange}
+                        value={values.phone}
+                        error={errors?.phone}
+                    />
+                </InputMask>
 
                 <Input
                     id='date'
@@ -70,10 +76,19 @@ const StepOne = () => {
                     value={values.date}
                     onChange={handleChange}
                     max={moment().format('YYYY-MM-DD')}
+                    error={errors?.date}
                 />
             </div>
             <div className='form_btn'>
-                <button type="button" className='reverse' onClick={() => {navigate('/')}}>Назад к расчету стоимости</button>
+                <button
+                    type='button'
+                    className='reverse'
+                    onClick={() => {
+                        navigate('/');
+                    }}
+                >
+                    Назад к расчету стоимости
+                </button>
 
                 <button type='submit' className='button is-block is-info is-fullwidth'>
                     Далее
