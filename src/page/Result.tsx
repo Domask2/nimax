@@ -6,6 +6,7 @@ import Button from '../components/button/Button';
 import formatPhone from '../service/formatPhone';
 import formatTypeNumber from '../service/formatTypeNumber';
 import numWord from '../service/numWord';
+import strUser from '../service/strUser';
 
 const Result = () => {
     const navigate = useNavigate();
@@ -37,15 +38,7 @@ const Result = () => {
                         {numWord(data.countNumber, ['ночь', 'ночи', 'ночей'])}{' '}
                     </div>
                     <div className='description_list_user'>
-                        {data.countAdult} {numWord(data.countAdult, ['взрослый', 'взрослых'])}{' '}
-                        {data.countChildren > 0 && ', '}{data.countChildren > 0 && data.countChildren}{' '}
-                        {data.countChildren > 0 &&
-                            numWord(data.countChildren, ['ребенок', 'ребенок', 'детей'])}{' '}
-                        {data.countChildren > 0 && 'от 12 лет и'}{' '}
-                        {data.countSmallChildren > 0 && data.countSmallChildren}{' '}
-                        {data.countSmallChildren > 0 &&
-                            numWord(data.countSmallChildren, ['ребенок', 'ребенок', 'детей'])}{' '}
-                        {data.countSmallChildren > 0 && 'младше 5 лет'}
+                        {strUser(data)}
                     </div>
                     <div className='description_insurance'>
                         {data.insurance ? 'Страховка включена' : 'Страховка не включена'}{' '}
