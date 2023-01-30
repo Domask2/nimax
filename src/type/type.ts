@@ -52,7 +52,7 @@ export const InitValues2 = {
     surname: '',
     name: '',
     patronymic: '',
-    phone: '+7',
+    phone: '',
     date: '',
 }
 

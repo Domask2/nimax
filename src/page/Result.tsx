@@ -47,7 +47,7 @@ const Result = () => {
             <div className='form_btn'>
                 <Button
                     type='button'
-                    className='reverse'
+                    className='button text'
                     onClick={handleClick}
                 >
                     Назад к данным покупателя
