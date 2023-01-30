@@ -1,0 +1,23 @@
+.button {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: #3B82F6;
+  color: white;
+
+  &:hover {
+    background: linear-gradient(0deg, #60A5FA, #60A5FA), #60A5FA;
+  }
+}
+
+.text {
+  background: #FFFFFF;
+  font-weight: 500;
+  line-height: 19px;
+}

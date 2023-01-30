@@ -7,6 +7,7 @@ import Input from '../components/input/Input';
 import getPrice from '../service/getPrice';
 import { useData } from '../components/contex/DataContex';
 import { InitErrors, InitValues } from '../type/type';
+import Button from '../components/button/Button'
 
 const StepOne = () => {
     const navigate = useNavigate();
@@ -129,9 +130,9 @@ const StepOne = () => {
             </div>
 
             <div className='form_btn'>
-                <button type='submit' className='button is-block is-info is-fullwidth'>
+                <Button type='submit' className='button primary'>
                     Далее
-                </button>
+                </Button>
             </div>
         </Form>
     );

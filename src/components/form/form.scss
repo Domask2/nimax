@@ -1,0 +1,92 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 16px;
+  padding-left: 64px;
+  padding-right: 64px;
+
+  &_container {
+    .description {
+      margin-top: 24px;
+      line-height: 19px;
+      color: #000000;
+
+      &_user {
+        font-weight: 600;
+        line-height: 19px;
+        color: #000000;
+        margin-bottom: 6px;
+      }
+
+      &_phone {
+        margin-bottom: 6px;
+      }
+
+      &_number {
+        margin-bottom: 6px;
+      }
+
+      &_list_user {
+        margin-bottom: 6px;
+      }
+
+      &_insurance {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 8px;
+
+    &__desc {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .group {
+    display: flex;
+
+    &__title {
+      width: 50%;
+      line-height: 19px;
+    }
+
+    &__radio {
+      width: 50%;
+      .input_field {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .form_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+}
+
+.form_result {
+  display: flex;
+
+  &__label {
+    width: 50%;
+  }
+
+  &__sum {
+    width: 50%;
+    font-weight: 600;
+    line-height: 19px;
+  }
+}

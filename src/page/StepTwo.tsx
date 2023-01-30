@@ -8,6 +8,7 @@ import Form from '../components/form/Form';
 import Input from '../components/input/Input';
 import { InitErrors, InitValues2 } from '../type/type';
 import { useData } from '../components/contex/DataContex';
+import Button from '../components/button/Button'
 
 const StepOne = () => {
     const navigate = useNavigate();
@@ -82,7 +83,7 @@ const StepOne = () => {
             <div className='form_btn'>
                 <button
                     type='button'
-                    className='reverse'
+                    className='button text'
                     onClick={() => {
                         navigate('/');
                     }}
@@ -90,9 +91,9 @@ const StepOne = () => {
                     Назад к расчету стоимости
                 </button>
 
-                <button type='submit' className='button is-block is-info is-fullwidth'>
+                <Button type='submit' className='button primary'>
                     Далее
-                </button>
+                </Button>
             </div>
         </Form>
     );

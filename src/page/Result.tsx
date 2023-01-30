@@ -5,6 +5,7 @@ import { useData } from '../components/contex/DataContex';
 import formatPhone from '../service/formatPhone'
 import formatTypeNumber from '../service/formatTypeNumber'
 import numWord from '../service/numWord'
+import Button from '../components/button/Button'
 
 const Result = () => {
     const navigate = useNavigate();
@@ -14,6 +15,10 @@ const Result = () => {
       event.preventDefault();
       navigate('/success');
       console.log(data);
+    }
+
+    const handleClick = () => {
+      navigate('/step2');
     }
 
     return (
@@ -40,18 +45,16 @@ const Result = () => {
                 </div>
             </div>
             <div className='form_btn'>
-                <button
+                <Button
                     type='button'
                     className='reverse'
-                    onClick={() => {
-                        navigate('/step2');
-                    }}
+                    onClick={handleClick}
                 >
                     Назад к данным покупателя
-                </button>
-                <button type='submit' className='button is-block is-info is-fullwidth'>
+                </Button>
+                <Button type='submit' className='button primary'>
                     Оплатить
-                </button>
+                </Button>
             </div>
         </Form>
     );
