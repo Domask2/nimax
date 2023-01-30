@@ -1,14 +1,14 @@
 import React from 'react';
 import moment from 'moment';
-import { useNavigate } from 'react-router';
 import InputMask from 'react-input-mask';
-import useForm from '../hooks/useForm';
+import { useNavigate } from 'react-router';
 import { validate2 } from '../service/validate';
+import { useData } from '../components/contex/DataContex';
+import { InitErrors, InitValues2 } from '../type/type';
 import Form from '../components/form/Form';
 import Input from '../components/input/Input';
-import { InitErrors, InitValues2 } from '../type/type';
-import { useData } from '../components/contex/DataContex';
-import Button from '../components/button/Button'
+import Button from '../components/button/Button';
+import useForm from '../hooks/useForm';
 
 const StepOne = () => {
     const navigate = useNavigate();

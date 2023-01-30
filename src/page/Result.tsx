@@ -1,11 +1,11 @@
 import React, { FormEvent } from 'react'
 import { useNavigate } from 'react-router';
-import Form from '../components/form/Form';
 import { useData } from '../components/contex/DataContex';
+import Form from '../components/form/Form';
+import Button from '../components/button/Button'
 import formatPhone from '../service/formatPhone'
 import formatTypeNumber from '../service/formatTypeNumber'
 import numWord from '../service/numWord'
-import Button from '../components/button/Button'
 
 const Result = () => {
     const navigate = useNavigate();

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import useForm from '../hooks/useForm';
 import { validate } from '../service/validate';
-import Form from '../components/form/Form';
-import Input from '../components/input/Input';
-import getPrice from '../service/getPrice';
 import { useData } from '../components/contex/DataContex';
 import { InitErrors, InitValues } from '../type/type';
-import Button from '../components/button/Button'
+import useForm from '../hooks/useForm';
+import getPrice from '../service/getPrice';
+import Form from '../components/form/Form';
+import Input from '../components/input/Input';
+import Button from '../components/button/Button';
 
 const StepOne = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const StepOne = () => {
     const [price, setPrice] = useState(0);
     const { values, errors, handleChange, handleSubmit } = useForm(
         () => {
-            values.totalPrice = price
+            values.totalPrice = price;
             setValues(values);
             navigate('/step2');
         },
@@ -23,7 +23,6 @@ const StepOne = () => {
         InitValues,
         InitErrors,
     );
-
 
     useEffect(() => {
         const totalPrice = getPrice(values);

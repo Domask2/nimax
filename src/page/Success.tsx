@@ -1,16 +1,12 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router';
-import Form from '../components/form/Form';
 import { useData } from '../components/contex/DataContex';
-import formatPhone from '../service/formatPhone';
-import formatTypeNumber from '../service/formatTypeNumber';
-import numWord from '../service/numWord';
-import { InitValues, InitValues2 } from '../type/type'
+import { InitValues, InitValues2 } from '../type/type';
 
 const Result = () => {
     const navigate = useNavigate();
     const { setValues } = useData();
-  return (
+    return (
         <div>
             <div>Заказ успешно оплачен</div>
             <button
@@ -27,4 +23,4 @@ const Result = () => {
     );
 };
 
-export default Result;
+export default Result
