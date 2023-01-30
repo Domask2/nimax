@@ -4,7 +4,7 @@ import numWord from './numWord';
 const strUser = (data: ValueType): string => {
     const strAdult =
         data.countAdult &&
-        `${data.countAdult} ${numWord(data.countAdult, ['взрослый', 'взрослых'])}`;
+        `${data.countAdult} ${numWord(data.countAdult, ['взрослый', 'взрослых', 'взрослых'])}`;
     let strChildren = '';
     let strSmallChildren = '';
     if (data.countChildren) {
@@ -12,7 +12,7 @@ const strUser = (data: ValueType): string => {
             data.countChildren > 0
                 ? `, ${data.countChildren} ${numWord(data.countChildren, [
                       'ребенок',
-                      'ребенок',
+                      'ребенка',
                       'детей',
                   ])} от 12 лет`
                 : '';
@@ -22,7 +22,7 @@ const strUser = (data: ValueType): string => {
             data.countSmallChildren > 0
                 ? ` и ${data.countSmallChildren} ${numWord(data.countSmallChildren, [
                       'ребенок',
-                      'ребенок',
+                      'ребенка',
                       'детей',
                   ])} младше 5 лет`
                 : '';

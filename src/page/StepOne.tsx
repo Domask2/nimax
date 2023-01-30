@@ -33,7 +33,7 @@ const StepOne = () => {
                     name='countAdult'
                     type='number'
                     label='Количество взрослых'
-                    value={values.countAdult}
+                    value={values.countAdult === 0 ? '' : values.countAdult}
                     onChange={handleChange}
                     error={errors?.countAdult}
                     min='1'
@@ -45,7 +45,7 @@ const StepOne = () => {
                     type='number'
                     label='Количество детей от 5 до 12 лет'
                     onChange={handleChange}
-                    value={values.countChildren}
+                    value={values.countChildren === 0 ? '' : values.countChildren}
                     error={errors?.countChildren}
                     min='0'
                 />
@@ -56,7 +56,7 @@ const StepOne = () => {
                     type='number'
                     label='Количество детей до 5 лет'
                     onChange={handleChange}
-                    value={values.countSmallChildren}
+                    value={values.countSmallChildren === 0 ? '' : values.countSmallChildren}
                     error={errors?.countSmallChildren}
                     min='0'
                 />
@@ -118,7 +118,7 @@ const StepOne = () => {
                     type='number'
                     label='Количество ночей'
                     onChange={handleChange}
-                    value={values.countNumber}
+                    value={values.countNumber === 0 ? '' : values.countNumber}
                     error={errors?.countNumber}
                     min='1'
                 />

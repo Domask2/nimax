@@ -3,7 +3,7 @@ export const standard = 2800;
 export const luxury = 4000;
 
 export type ValueTypeStepOne = {
-    countAdult?: number;
+    countAdult?: number ;
     countChildren?: number;
     countSmallChildren?: number;
     typeNumber?: string;
