@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { useData } from '../components/contex/DataContex';
-import { InitValues, InitValues2 } from '../type/type';
+import { useData } from '../../components/contex/DataContex';
+import { InitValuesStepOne, InitValuesStepTwo } from '../../type/type';
 
 const Result = () => {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Result = () => {
                         type='button'
                         onClick={() => {
                             navigate('/');
-                            setValues({ ...InitValues, ...InitValues2 });
+                            setValues({ ...InitValuesStepOne, ...InitValuesStepTwo });
                         }}
                         className='button primary'
                     >

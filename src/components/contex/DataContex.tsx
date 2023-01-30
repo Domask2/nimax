@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext, useMemo } from 'react'
-import { InitValues, InitValues2, ValueType1, ValueType2 } from '../../type/type'
+import { InitValuesStepOne, InitValuesStepTwo, ValueTypeStepOne, ValueTypeStepTwo } from '../../type/type'
 
 const iDataContextState = {
-    data: { ...InitValues, ...InitValues2 },
-    setValues: (state: ValueType1 | ValueType2) => {},
+    data: { ...InitValuesStepOne, ...InitValuesStepTwo },
+    setValues: (state: ValueTypeStepOne | ValueTypeStepTwo) => {},
 };
 
 const DataContext = createContext(iDataContextState)
@@ -11,7 +11,7 @@ const DataContext = createContext(iDataContextState)
 export const DataProvider = ({ children }: {children: React.ReactNode}) => {
   const [data, setData] = useState(iDataContextState.data)
 
-  const setValues = (values: ValueType1 | ValueType2) => {
+  const setValues = (values: ValueTypeStepOne | ValueTypeStepTwo) => {
     setData(prevData => ({
       ...prevData,
       ...values,

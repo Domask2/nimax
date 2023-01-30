@@ -1,6 +1,6 @@
-import { ErrorType, ValueType1, ValueType2 } from '../type/type';
+import { ErrorType, ValueType } from '../type/type'
 
-export const validate = (values: ValueType1 & ValueType2) => {
+export const validateStepOne = (values: ValueType) => {
     const errors: ErrorType | null = {};
 
     if (values.countAdult && values.countSmallChildren) {
@@ -13,7 +13,7 @@ export const validate = (values: ValueType1 & ValueType2) => {
     return errors;
 };
 
-export const validate2 = (values: ValueType1 & ValueType2) => {
+export const validateStepTwo = (values: ValueType) => {
     const errors: ErrorType | null = {};
     if (!values.surname) {
         errors.surname = 'Обязательное поле для заполнения';

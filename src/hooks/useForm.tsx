@@ -1,10 +1,10 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { ErrorType, ValueType1, ValueType2 } from '../type/type';
+import { useState, FormEvent, ChangeEvent } from 'react'
+import { ErrorType, ValueType } from '../type/type'
 import { useData } from '../components/contex/DataContex';
 
 const useForm = (
     callback: () => void,
-    validate: (values: ValueType1 & ValueType2) => ErrorType
+    validate: (values: ValueType) => ErrorType,
 ) => {
     const { data } = useData();
     const [values, setValues] = useState(data);
@@ -19,9 +19,7 @@ const useForm = (
         }
     };
 
-    const handleChange = (
-        event: any,
-    ) => {
+    const handleChange = (event: ChangeEvent<HTMLSelectElement & HTMLInputElement>) => {
         event.persist();
         let value: string | number | boolean;
 

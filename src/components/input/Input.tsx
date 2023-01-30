@@ -5,7 +5,7 @@ export interface InputType {
     id: string;
     type: string;
     name: string;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLSelectElement & HTMLInputElement>) => void;
     value?: string | number | undefined;
     checked?: boolean;
     label?: string;
@@ -47,7 +47,11 @@ const Input: FC<InputType> = ({
     return (
         <div className={type === 'checkbox' ? 'input_field checkbox' : 'input_field'}>
             {type !== 'radio' && <div className='input_field__label'>{label}</div>}
-            <div className={type === 'checkbox' ? 'input_field__wrapper checkbox' : 'input_field__wrapper'}>
+            <div
+                className={
+                    type === 'checkbox' ? 'input_field__wrapper checkbox' : 'input_field__wrapper'
+                }
+            >
                 <input
                     id={id}
                     className={error ? `${classname} danger` : `${classname}`}

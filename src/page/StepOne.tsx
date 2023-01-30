@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { validate } from '../service/validate';
+import { validateStepOne } from '../service/validate';
 import { useData } from '../components/contex/DataContex';
-import { InitErrors, InitValues } from '../type/type';
 import useForm from '../hooks/useForm';
 import getPrice from '../service/getPrice';
 import Form from '../components/form/Form';
@@ -13,14 +12,11 @@ const StepOne = () => {
     const navigate = useNavigate();
     const { setValues } = useData();
     const [price, setPrice] = useState(0);
-    const { values, errors, handleChange, handleSubmit } = useForm(
-        () => {
-            values.totalPrice = price;
-            setValues(values);
-            navigate('/step2');
-        },
-        validate,
-    );
+    const { values, errors, handleChange, handleSubmit } = useForm(() => {
+        values.totalPrice = price;
+        setValues(values);
+        navigate('/step2');
+    }, validateStepOne);
 
     useEffect(() => {
         const totalPrice = getPrice(values);
@@ -102,13 +98,19 @@ const StepOne = () => {
 
                 <div className='select'>
                     <div className='select__title'>Тип номера</div>
-                    <select className='select_item' value={values.typeNumber} onChange={handleChange} name="typeNumber" id="typeNumber" form="form">
-                        <option value="economy">Эконом</option>
-                        <option value="standard">Стандарт</option>
-                        <option value="luxury">Люкс</option>
+                    <select
+                        className='select_item'
+                        value={values.typeNumber}
+                        onChange={handleChange}
+                        name='typeNumber'
+                        id='typeNumber'
+                        form='form'
+                    >
+                        <option value='economy'>Эконом</option>
+                        <option value='standard'>Стандарт</option>
+                        <option value='luxury'>Люкс</option>
                     </select>
                 </div>
-
 
                 <Input
                     id='countNumber'

@@ -4,7 +4,7 @@ import { Routes } from 'react-router-dom'
 import StepOne from '../page/StepOne'
 import StepTwo from '../page/StepTwo'
 import Result from '../page/Result'
-import Success from '../page/Success'
+import Success from '../page/Success/Success'
 
 const Routing = () => (
   <Routes>
