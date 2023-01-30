@@ -7,18 +7,25 @@ const Result = () => {
     const navigate = useNavigate();
     const { setValues } = useData();
     return (
-        <div>
-            <div>Заказ успешно оплачен</div>
-            <button
-                type='button'
-                onClick={() => {
-                    navigate('/');
-                    setValues({ ...InitValues, ...InitValues2 });
-                }}
-                className='button is-block is-info is-fullwidth'
-            >
-                Забронировать еще
-            </button>
+        <div className='success'>
+            <div className='success_container'>
+                <div className='success_title'>
+                    <img src='./success.png' alt='success' />
+                    Заказ успешно оплачен
+                </div>
+                <div className='success_wrapper_button'>
+                    <button
+                        type='button'
+                        onClick={() => {
+                            navigate('/');
+                            setValues({ ...InitValues, ...InitValues2 });
+                        }}
+                        className='button primary'
+                    >
+                        Забронировать еще
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

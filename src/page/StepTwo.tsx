@@ -19,8 +19,6 @@ const StepOne = () => {
             navigate('/result');
         },
         validate2,
-        InitValues2,
-        InitErrors,
     );
 
     return (

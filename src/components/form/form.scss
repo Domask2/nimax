@@ -65,6 +65,10 @@
 
       .input_field {
         margin-bottom: 10px;
+
+        &__wrapper {
+          width: 10%;
+        }
       }
     }
   }
@@ -75,7 +79,6 @@
     align-items: center;
     cursor: pointer;
   }
-
 }
 
 .form_result {
@@ -89,5 +92,15 @@
     width: 50%;
     font-weight: 600;
     line-height: 19px;
+  }
+}
+
+@media (max-width: 639px) {
+  .form_btn {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
   }
 }

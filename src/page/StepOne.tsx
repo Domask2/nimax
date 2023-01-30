@@ -20,8 +20,6 @@ const StepOne = () => {
             navigate('/step2');
         },
         validate,
-        InitValues,
-        InitErrors,
     );
 
     useEffect(() => {
@@ -74,7 +72,7 @@ const StepOne = () => {
                             id='typeNumber'
                             name='typeNumber'
                             type='radio'
-                            label='Экономный'
+                            label='Эконом'
                             value='economy'
                             checked={values.typeNumber === 'economy'}
                             onChange={handleChange}
@@ -84,7 +82,7 @@ const StepOne = () => {
                             id='typeNumber'
                             name='typeNumber'
                             type='radio'
-                            label='Стандартный'
+                            label='Стандарт'
                             value='standard'
                             checked={values.typeNumber === 'standard'}
                             onChange={handleChange}
@@ -101,6 +99,16 @@ const StepOne = () => {
                         />
                     </div>
                 </div>
+
+                <div className='select'>
+                    <div className='select__title'>Тип номера</div>
+                    <select className='select_item' value={values.typeNumber} onChange={handleChange} name="typeNumber" id="typeNumber" form="form">
+                        <option value="economy">Эконом</option>
+                        <option value="standard">Стандарт</option>
+                        <option value="luxury">Люкс</option>
+                    </select>
+                </div>
+
 
                 <Input
                     id='countNumber'

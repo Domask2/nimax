@@ -21,3 +21,14 @@
   font-weight: 500;
   line-height: 19px;
 }
+
+@media (max-width: 639px) {
+  .primary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .text {
+    width: 100%;
+  }
+}

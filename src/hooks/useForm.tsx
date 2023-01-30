@@ -4,9 +4,7 @@ import { useData } from '../components/contex/DataContex';
 
 const useForm = (
     callback: () => void,
-    validate: (values: ValueType1 & ValueType2) => ErrorType,
-    initValues: ValueType1 & ValueType2,
-    initError: ErrorType,
+    validate: (values: ValueType1 & ValueType2) => ErrorType
 ) => {
     const { data } = useData();
     const [values, setValues] = useState(data);
@@ -21,7 +19,9 @@ const useForm = (
         }
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (
+        event: any,
+    ) => {
         event.persist();
         let value: string | number | boolean;
 
@@ -31,10 +31,18 @@ const useForm = (
             value = event.target.value;
         }
 
-        setValues((values) => ({
-            ...values,
-            [event.target.name]: event.target.type === 'checkbox' ? event.target.checked : value,
-        }));
+        if (event.target.type === 'select') {
+            setValues((values) => ({
+                ...values,
+                [event.target.name]: event.target.type === 'checkbox' ? event.target.value : value,
+            }));
+        } else {
+            setValues((values) => ({
+                ...values,
+                [event.target.name]:
+                    event.target.type === 'checkbox' ? event.target.checked : value,
+            }));
+        }
     };
 
     return { handleChange, handleSubmit, values, errors };

@@ -45,9 +45,9 @@ const Input: FC<InputType> = ({
     }
 
     return (
-        <div className='input_field'>
+        <div className={type === 'checkbox' ? 'input_field checkbox' : 'input_field'}>
             {type !== 'radio' && <div className='input_field__label'>{label}</div>}
-            <div className='input_field__wrapper'>
+            <div className={type === 'checkbox' ? 'input_field__wrapper checkbox' : 'input_field__wrapper'}>
                 <input
                     id={id}
                     className={error ? `${classname} danger` : `${classname}`}
@@ -62,10 +62,12 @@ const Input: FC<InputType> = ({
                     max={max}
                     pattern={pattern}
                 />
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                {type === 'checkbox' && <label htmlFor={id} className='lb1' />}
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                {type === 'checkbox' && <label htmlFor={id} className='custom-checkbox' />}
                 {error && <div className='input_field__message'>{error}</div>}
             </div>
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            {type === 'checkbox' && <label htmlFor={id} className='custom-checkbox' />}
             {type === 'radio' && <div className='input_field__label_radio'>{label}</div>}
         </div>
     );
