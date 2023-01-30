@@ -25,16 +25,7 @@ module.exports = {
     'react/require-default-props': 'off',
     "no-shadow": "off",
     'import/no-extraneous-dependencies' : 'off',
-    'react/function-component-definition': [2, {namedComponents: 'arrow-function', unnamedComponents: 'arrow-function'}],
-    "@typescript-eslint/ban-types": [
-      "off",
-      {
-        "extendDefaults": true,
-        "types": {
-          "{}": false
-        }
-      }
-    ]
+    'react/function-component-definition': [2, {namedComponents: 'arrow-function', unnamedComponents: 'arrow-function'}]
   },
 };
 

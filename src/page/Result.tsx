@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent } from 'react'
 import { useNavigate } from 'react-router';
 import { useData } from '../components/contex/DataContex';
 import Form from '../components/form/Form';
@@ -14,8 +14,11 @@ const Result = () => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        navigate('/success');
-        console.log(data);
+
+        setTimeout(() => {
+            // fetch на сервер - по результатм ответа перейдем дальше или останемся
+            navigate('/success');
+        }, 1000)
     };
 
     const handleClick = () => {

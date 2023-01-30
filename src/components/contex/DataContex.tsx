@@ -3,7 +3,8 @@ import { InitValuesStepOne, InitValuesStepTwo, ValueTypeStepOne, ValueTypeStepTw
 
 const iDataContextState = {
     data: { ...InitValuesStepOne, ...InitValuesStepTwo },
-    setValues: (state: ValueTypeStepOne | ValueTypeStepTwo) => {},
+    // eslint-disable-next-line
+    setValues: (values: ValueTypeStepOne | ValueTypeStepTwo) => {},
 };
 
 const DataContext = createContext(iDataContextState)

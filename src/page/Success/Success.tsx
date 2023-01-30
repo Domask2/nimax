@@ -6,6 +6,7 @@ import { InitValuesStepOne, InitValuesStepTwo } from '../../type/type';
 const Result = () => {
     const navigate = useNavigate();
     const { setValues } = useData();
+
     return (
         <div className='success'>
             <div className='success_container'>
